@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import { Montserrat } from "next/font/google";
-import { ThemeProvider } from "@/src/components/theme-provider";
+
 import "./globals.css";
+import { ThemeProvider } from "@/src/components/theme-provider";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -10,7 +11,7 @@ const montserrat = Montserrat({
 });
 
 export const metadata: Metadata = {
-  title: "MIERU",
+  title: "MIERU — See. Track. Grow.",
   description:
     "Track your SEO performance and AI search visibility in one place.",
 };
@@ -21,16 +22,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en">
       <body className={`${montserrat.variable} antialiased`}>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="light"
-          enableSystem
-          disableTransitionOnChange
-        >
-          {children}
-        </ThemeProvider>
+        <ThemeProvider>{children}</ThemeProvider>
       </body>
     </html>
   );
