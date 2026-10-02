@@ -17,8 +17,7 @@ const benefits: { title: string; description: string; icon: LucideIcon }[] = [
   },
   {
     title: "AI & GEO Visibility",
-    description:
-      "Track your brand presence across ChatGPT, Gemini, Claude and other AI platforms.",
+    description: "Track your brand presence across ChatGPT, Gemini, Claude and other AI platforms.",
     icon: Sparkles,
   },
   {
@@ -45,7 +44,9 @@ const benefits: { title: string; description: string; icon: LucideIcon }[] = [
 
 const Benefits = () => {
   return (
-    <section id="features" className="w-full bg-background px-6 py-20">
+    <section id="features" className="relative isolate w-full bg-background px-6 py-24">
+      <div className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-80 bg-[radial-gradient(60%_100%_at_50%_0%,rgba(37,99,235,0.12),transparent)]" />
+
       <div className="mx-auto max-w-6xl">
         <SectionHeading
           badge="Benefits"
@@ -53,21 +54,25 @@ const Benefits = () => {
           description="Track your traditional SEO and AI search performance, understand your audience, and stay ahead of the competition."
         />
 
-        <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {benefits.map(({ title, description, icon: Icon }) => (
             <article
               key={title}
-              className="flex items-start gap-4 rounded-2xl border border-border bg-white/70 p-5 shadow-sm transition-colors hover:border-blue-500/40 dark:bg-white/3 dark:shadow-none"
+              className="group relative overflow-hidden rounded-2xl border border-border/70 bg-white/70 p-6 transition-all duration-300 hover:-translate-y-1 hover:border-blue-500/50 dark:bg-white/3"
             >
-              <div className="flex size-12 shrink-0 items-center justify-center rounded-xl bg-blue-600/10 text-blue-600 dark:bg-blue-500/15 dark:text-blue-400">
+              {/* corner glow */}
+              <div className="pointer-events-none absolute -right-10 -top-10 size-36 rounded-full bg-blue-500/20 opacity-0 blur-3xl transition-opacity duration-500 group-hover:opacity-100" />
+
+              <div className="relative flex size-11 items-center justify-center rounded-lg bg-blue-600/10 text-blue-600 ring-1 ring-blue-500/20 transition-colors duration-300 group-hover:bg-blue-600 group-hover:text-white dark:bg-blue-500/15 dark:text-blue-400 dark:group-hover:bg-blue-500 dark:group-hover:text-white">
                 <Icon className="size-5" />
               </div>
-              <div>
-                <h3 className="text-sm font-semibold text-foreground">{title}</h3>
-                <p className="mt-1.5 text-xs leading-relaxed text-muted-foreground">
-                  {description}
-                </p>
-              </div>
+
+              <h3 className="relative mt-5 text-base font-semibold tracking-tight text-foreground">
+                {title}
+              </h3>
+              <p className="relative mt-2 text-sm leading-relaxed text-muted-foreground">
+                {description}
+              </p>
             </article>
           ))}
         </div>

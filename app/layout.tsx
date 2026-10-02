@@ -11,7 +11,7 @@ const montserrat = Montserrat({
 });
 
 export const metadata: Metadata = {
-  title: "MIERU — See. Track. Grow.",
+  title: "MIERU",
   description:
     "Track your SEO performance and AI search visibility in one place.",
 };
