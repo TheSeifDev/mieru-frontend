@@ -47,6 +47,6 @@ export const AUTH_LINKS = {
   },
   getStarted: {
     label: "Get started",
-    href: "/signup",
+    href: "/login",
   },
 } as const;
